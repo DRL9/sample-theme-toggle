@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>主题切换</title>
+        <style>
+            body {
+                padding: 0;
+            }
+            button {
+                padding: 5px 20px;
+            }
+        </style>
+        <style>
+            body {
+                --main-bg-color: antiquewhite;
+                --main-color: #999;
+                --button-bg-color: #ccc;
+                --button-color: #999;
+            }
+            body.theme-dark {
+                --main-bg-color: #000;
+                --main-color: #fff;
+                --button-bg-color: #eee;
+                --button-color: #000;
+            }
+            body {
+                background-color: var(--main-bg-color);
+                color: var(--main-color);
+            }
+            button {
+                background-color: var(--button-bg-color);
+                color: var(--button-color);
+            }
+        </style>
+    </head>
+    <body class="theme-dark">
+        <h1>使用css变量设置</h1>
+        <div>
+            <button id="btnSwitch">切换</button>
+        </div>
+        <script>
+            document.getElementById('btnSwitch').onclick = function () {
+                if (document.body.classList.contains('theme-dark')) {
+                    document.body.classList.remove('theme-dark');
+                } else {
+                    document.body.classList.add('theme-dark');
+                }
+            };
+        </script>
+    </body>
+</html>
